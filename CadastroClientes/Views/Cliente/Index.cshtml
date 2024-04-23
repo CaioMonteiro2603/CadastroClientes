@@ -1,0 +1,75 @@
+﻿@model List<ClienteModel>
+@{
+    ViewData["Title"] = "Lista de clientes";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Cliente" asp-action="Criar">Criar novo contato</a>
+    </div>
+    <br />
+
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">x</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btnsmall close-alert" arial-label="Close">x</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+
+    <h2 class="display-4">Lista de clientes</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome Completo</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Logradouro</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                foreach (ClienteModel cliente in Model)
+                {
+                    <tr>
+                        <th scope="row">@cliente.Id</th>
+                        <td>@cliente.NomeCompleto</td>
+                        <td>@cliente.CPF</td>
+                        <td>@cliente.Telefone</td>
+                        <td>@cliente.Logradouro</td>
+                        <td>@cliente.Numero</td>
+                        <td>@cliente.Bairro</td>
+                        <td>@cliente.CEP</td>
+                        <td>@cliente.Cidade</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@cliente.Id" asp-controller="Cliente" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-primary" asp-route-id="@cliente.Id" asp-controller="Cliente" asp-action="Deletar">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

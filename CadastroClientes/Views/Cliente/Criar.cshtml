@@ -1,0 +1,55 @@
+﻿@model ClienteModel
+
+<div class="text-center">
+    <h1 class="display-4">Criar novo cliente</h1>
+</div>
+
+<form asp-controller="Cliente" asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="NomeCompleto" class="form-label">Nome</label>
+        <input type="text" asp-for="NomeCompleto" class="form-control" placeholder="Insira seu nome completo">
+        @Html.ValidationMessageFor(c => c.NomeCompleto)
+    </div>
+    <div class="form-group">
+        <label for="CPF" class="form-label">CPF</label>
+        <input type="text" asp-for="CPF" class="form-control" placeholder="000.000.000-00">
+        @Html.ValidationMessageFor(c => c.CPF)
+    </div>
+    <div class="form-group">
+        <label for="Telefone" class="form-label">Telefone</label>
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="00 000000000">
+        @Html.ValidationMessageFor(c => c.Telefone)
+    </div>
+    <div class="form-group">
+        <label for="Logradouro" class="form-label">Logradouro</label>
+        <input type="text" asp-for="Logradouro" class="form-control" placeholder="Rua, viela, avenida, etc">
+        @Html.ValidationMessageFor(c => c.Logradouro)
+    </div>
+    <div class="form-group">
+        <label for="Numero" class="form-label">Numero</label>
+        <input type="text" asp-for="Numero" class="form-control" placeholder="Número da residência">
+        @Html.ValidationMessageFor(c => c.Numero)
+    </div>
+    <div class="form-group">
+        <label for="Bairro" class="form-label">Bairro</label>
+        <input type="text" asp-for="Bairro" class="form-control" placeholder="Seu bairro, jardim ou condomínio">
+        @Html.ValidationMessageFor(c => c.Bairro)
+    </div>
+    <div class="form-group">
+        <label for="CEP" class="form-label">CEP</label>
+        <input type="text" asp-for="CEP" class="form-control" placeholder="00000-000">
+        @Html.ValidationMessageFor(c => c.CEP)
+    </div>
+    <div class="form-group">
+        <label for="Cidade" class="form-label">Cidade</label>
+        <input type="text" asp-for="Cidade" class="form-control" placeholder="Informe sua cidade">
+        @Html.ValidationMessageFor(c => c.Cidade)
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+    <a class="btn btn-secondary" asp-controller="Cliente" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+
