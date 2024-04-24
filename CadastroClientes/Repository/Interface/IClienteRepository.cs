@@ -8,9 +8,15 @@ namespace CadastroClientes.Repository.Interface
 
         public ClienteModel FindById(int id);
 
+        public  IList<ClienteModel> FindByNome(string nome);
+
+        public IList<ClienteModel> FindByTelefone(string telefone);
+
+        public IList<ClienteModel> FindByCPF(string cpf);
+
         public int Insert(ClienteModel clienteModel);
 
-        public void Update(ClienteModel clienteModel);
+        public ClienteModel Update(ClienteModel clienteModel);
 
         public bool Delete(int id);
     }

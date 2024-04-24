@@ -10,11 +10,10 @@
     </div>
     <br />
 
-
     @if (TempData["MensagemSucesso"] != null)
     {
         <div class="alert alert-success" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">x</button>
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" arial-label="Close">x</button>
             @TempData["MensagemSucesso"]
         </div>
     }
@@ -22,18 +21,17 @@
     @if (TempData["MensagemErro"] != null)
     {
         <div class="alert alert-danger" role="alert">
-            <button type="button" class="btn btn-danger btnsmall close-alert" arial-label="Close">x</button>
+            <button type="button" class="btn btn-danger btnsmall close-alert" data-bs-dismiss="alert" arial-label="Close">x</button>
             @TempData["MensagemErro"]
         </div>
     }
 
-
     <h2 class="display-4">Lista de clientes</h2>
 
-    <table class="table">
+    <table class="table" id="table-clientes">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Nome Completo</th>
                 <th scope="col">CPF</th>
                 <th scope="col">Telefone</th>
@@ -42,6 +40,8 @@
                 <th scope="col">Bairro</th>
                 <th scope="col">CEP</th>
                 <th scope="col">Cidade</th>
+                <th scope="col">Categoria do cliente</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -51,7 +51,7 @@
                 foreach (ClienteModel cliente in Model)
                 {
                     <tr>
-                        <th scope="row">@cliente.Id</th>
+                        <th scope="row">@cliente.ClienteId</th>
                         <td>@cliente.NomeCompleto</td>
                         <td>@cliente.CPF</td>
                         <td>@cliente.Telefone</td>
@@ -60,10 +60,11 @@
                         <td>@cliente.Bairro</td>
                         <td>@cliente.CEP</td>
                         <td>@cliente.Cidade</td>
+                        <td>@cliente.CategoriaCliente</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a role="button" class="btn btn-primary" asp-route-id="@cliente.Id" asp-controller="Cliente" asp-action="Editar">Editar</a>
-                                <a role="button" class="btn btn-primary" asp-route-id="@cliente.Id" asp-controller="Cliente" asp-action="Deletar">Deletar</a>
+                                <a role="button" class="btn btn-primary" asp-route-id="@cliente.ClienteId" asp-controller="Cliente" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-primary btn-danger" asp-route-id="@cliente.ClienteId" asp-controller="Cliente" asp-action="Deletar">Deletar</a>
                             </div>
                         </td>
                     </tr>

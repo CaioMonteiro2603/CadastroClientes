@@ -15,7 +15,8 @@ namespace CadastroClientes.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var cliente = _clienteRepository.FindAll();
+            return View(cliente);
         }
 
         [HttpGet]
@@ -33,7 +34,7 @@ namespace CadastroClientes.Controllers
                 {
                     _clienteRepository.Insert(clienteModel);
                     TempData["MensagemSucesso"] = "Cliente criado com sucesso!"; 
-                    RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
                 }
 
                 return View(clienteModel);

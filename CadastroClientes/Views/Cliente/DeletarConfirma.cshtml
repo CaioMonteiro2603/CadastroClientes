@@ -1,0 +1,12 @@
+﻿@model CadastroClientes.Models.ClienteModel
+
+@{
+    ViewData["Title"] = "Apagar";
+ }   
+
+<div class="text-center">
+    <h3>Você realmente deseja apagar o contato (@Model.NomeCompleto)?</h3>
+</div>
+
+<a class="btn btn-primary" asp-action="Index" asp-controller="Cliente" role="button">Voltar</a>
+<a class="btn btn-danger" asp-action="Deletar" asp-controller="Cliente" asp-route-id="" role="button">Confirmar</a>

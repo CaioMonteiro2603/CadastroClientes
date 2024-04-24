@@ -19,4 +19,12 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color:beige; 
+}
+
+footer {
+    font-size: medium;
+    color: black;
+    width: auto;
+    text-align: center;
 }

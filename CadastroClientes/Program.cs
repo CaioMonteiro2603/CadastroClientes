@@ -18,6 +18,7 @@ builder.Services.AddDbContext<DataContext>(
 
 #region InjestaoDependencia
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<ICategoriaReposoritory, CategoriaRepository>();
 #endregion
 var app = builder.Build();
 
